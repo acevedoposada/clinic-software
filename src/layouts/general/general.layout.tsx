@@ -39,7 +39,7 @@ const GeneralLayout = () => {
         </div>
         <div className={mergeClasses(classes.content, 'flex-auto')}>
           <nav className={mergeClasses(classes.navbar, 'w-full max-w-[100vw]')}>
-            <aside className='h-full flex items-center gap-3 max-w-[85%]'>
+            <aside className='h-full flex items-center gap-3 w-1/2'>
               <Avatar
                 size={36}
                 color='cornflower'
@@ -52,7 +52,7 @@ const GeneralLayout = () => {
             <aside className='h-full flex'>
               <Menu>
                 <MenuTrigger disableButtonEnhancement>
-                  <Button appearance='transparent' className='h-full'>
+                  <Button appearance='transparent' className='h-full w-44'>
                     <Persona
                       textPosition='before'
                       name={user.name as string}
