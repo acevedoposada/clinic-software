@@ -26,6 +26,13 @@ export const useDashboardPage = () => {
     })();
   }, []);
 
+  useEffect(() => {
+    if (patients.length > 0 && patientsFiltered.length === 0) {
+      setPatientsFiltered(patients);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [patients.length]);
+
   return {
     patients,
     appointments,
