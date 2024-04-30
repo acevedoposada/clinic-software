@@ -1,0 +1,1 @@
+export { default as RouterLoader } from './router-loader'
