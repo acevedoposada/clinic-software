@@ -32,6 +32,7 @@ import { clinicHistoryCols } from '../../constants/table';
 import { useDashboardPage } from '../../hooks/dashboard';
 import { useStyles } from './dashboard.styles';
 import withTitle from 'helpers/withTitle';
+import { Routes } from 'constants/routes';
 
 const DashboardPage = () => {
   const classes = useStyles();
@@ -40,7 +41,7 @@ const DashboardPage = () => {
     useDashboardPage();
 
   return (
-    <div className='p-8 flex flex-col gap-6 flex-1 md:h-full md:max-h-full'>
+    <div className='p-4 md:p-8 flex flex-col gap-6 flex-1 md:h-full md:max-h-full'>
       <div className='grid grid-cols-12 gap-6'>
         <Card className='col-span-6 md:col-span-2 md:overflow-hidden'>
           <CardHeader
@@ -153,7 +154,9 @@ const DashboardPage = () => {
                 <TableRow
                   key={item.id}
                   className='cursor-pointer'
-                  onClick={() => navigate(`${item.id}/detalles`)}
+                  onClick={() =>
+                    navigate(`/${Routes.CLINIC_HISTORY}/${item.id}/detalles`)
+                  }
                 >
                   <TableCell>
                     <TableCellLayout

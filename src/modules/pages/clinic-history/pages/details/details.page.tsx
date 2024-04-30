@@ -66,8 +66,8 @@ const DetailsPage = () => {
           <Button appearance='primary'>Iniciar nueva consulta</Button>
         </motion.div>
       </div>
-      <div className='p-8 w-full flex flex-col xl:flex-row gap-12'>
-        <div className='w-full xl:w-3/12 flex flex-col gap-8'>
+      <div className='p-4 md:p-8 w-full flex flex-col xl:flex-row gap-6 md:gap-12'>
+        <div className='w-full xl:w-3/12 flex flex-col gap-6 md:gap-8'>
           <Card ref={ref}>
             <div className='flex items-center gap-4'>
               <div>
