@@ -17,6 +17,7 @@ import {
   mergeClasses,
 } from '@fluentui/react-components';
 import {
+  ClipboardBulletListLtrRegular,
   ContactCardRegular,
   EyeRegular,
   InfoRegular,
@@ -30,6 +31,7 @@ import { AppointmentCard, DoughnutChart, LineChart } from '../../components';
 import { clinicHistoryCols } from '../../constants/table';
 import { useDashboardPage } from '../../hooks/dashboard';
 import { useStyles } from './dashboard.styles';
+import withTitle from 'helpers/withTitle';
 
 const DashboardPage = () => {
   const classes = useStyles();
@@ -38,9 +40,9 @@ const DashboardPage = () => {
     useDashboardPage();
 
   return (
-    <div className='p-8 flex flex-col gap-6 flex-1 h-full max-h-full'>
+    <div className='p-8 flex flex-col gap-6 flex-1 md:h-full md:max-h-full'>
       <div className='grid grid-cols-12 gap-6'>
-        <Card className='col-span-4 md:col-span-2 overflow-hidden'>
+        <Card className='col-span-6 md:col-span-2 md:overflow-hidden'>
           <CardHeader
             header={
               <Body1>
@@ -57,7 +59,7 @@ const DashboardPage = () => {
             <DoughnutChart />
           </div>
         </Card>
-        <Card className='col-span-4 md:col-span-2 !px-0 !pb-0 overflow-hidden'>
+        <Card className='col-span-6 md:col-span-2 !px-0 !pb-0 overflow-hidden'>
           <CardHeader
             className='px-3'
             header={
@@ -77,7 +79,7 @@ const DashboardPage = () => {
         </Card>
         <Card
           className={mergeClasses(
-            'col-span-4 md:col-span-2 border',
+            'col-span-12 md:col-span-2 border',
             classes.info
           )}
         >
@@ -102,8 +104,8 @@ const DashboardPage = () => {
           <div className='flex-1 flex gap-4 overflow-x-scroll'>
             {appointments.map((appointment) => (
               <AppointmentCard
-                key={appointment.patient.id}
-                name={appointment.patient.name}
+                key={appointment.patient?.id}
+                name={appointment.patient?.name}
                 date={appointment.date}
               />
             ))}
@@ -124,7 +126,7 @@ const DashboardPage = () => {
           />
         </div>
         <div className='relative h-full flex-auto w-full !overflow-y-scroll !p-0'>
-          <Table className='flex-auto absolute top-0 left-0 w-full'>
+          <Table className='flex-auto md:absolute top-0 left-0 w-full'>
             <TableHeader
               className={mergeClasses(
                 classes['table-header'],
@@ -133,7 +135,13 @@ const DashboardPage = () => {
             >
               <TableRow>
                 {clinicHistoryCols.map((column) => (
-                  <TableHeaderCell key={column.columnKey} className='!py-2'>
+                  <TableHeaderCell
+                    key={column.columnKey}
+                    className={mergeClasses(
+                      '!py-2',
+                      column.hideSm && '!hidden !md:block'
+                    )}
+                  >
                     <b>{column.label}</b>
                   </TableHeaderCell>
                 ))}
@@ -145,27 +153,30 @@ const DashboardPage = () => {
                 <TableRow
                   key={item.id}
                   className='cursor-pointer'
-                  onClick={() => navigate(`/${item.id}/detalles`)}
+                  onClick={() => navigate(`${item.id}/detalles`)}
                 >
                   <TableCell>
                     <TableCellLayout
+                      className='justify-center md:justify-start'
                       media={
                         <Avatar
-                          aria-label={item.name}
-                          name={item.name}
+                          aria-label={item?.name}
+                          name={item?.name}
                           color='colorful'
                         />
                       }
                     >
-                      <span className='font-semibold'>{item.name}</span>
+                      <span className='font-semibold hidden md:block'>
+                        {item?.name}
+                      </span>
                     </TableCellLayout>
                   </TableCell>
-                  <TableCell>
+                  <TableCell className='w-28'>
                     <TableCellLayout media={<ContactCardRegular />}>
                       <span className='font-medium'>{item.identification}</span>
                     </TableCellLayout>
                   </TableCell>
-                  <TableCell>
+                  <TableCell className='!hidden !md:block'>
                     <TableCellLayout media={<MailRegular />}>
                       {item.email}
                     </TableCellLayout>
@@ -194,4 +205,8 @@ const DashboardPage = () => {
   );
 };
 
-export default DashboardPage;
+export default withTitle(
+  DashboardPage,
+  'Historia Clínica',
+  ClipboardBulletListLtrRegular
+);

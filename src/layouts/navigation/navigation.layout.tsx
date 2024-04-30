@@ -10,6 +10,7 @@ import {
 
 import { useStyles } from './navigation.styles';
 import { useLayoutStore } from 'store/layout/layout.store';
+import { Routes } from 'constants/routes';
 
 const NavigationLayout = () => {
   const classes = useStyles();
@@ -25,7 +26,7 @@ const NavigationLayout = () => {
             classes.link,
             'gap-1 hover:gap-2 transition-all'
           )}
-          to='/'
+          to={`/${Routes.CLINIC_HISTORY}`}
         >
           <ChevronLeftRegular className='w-4 min-w-4' />
           Regresar

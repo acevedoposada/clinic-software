@@ -1,8 +1,9 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { Navigate, createBrowserRouter } from 'react-router-dom';
 import React from 'react';
 
-import { ClinicHistoryLayout } from 'modules/layouts';
+import { AppointmentsLayout, ClinicHistoryLayout } from 'modules/layouts';
 import { AuthLayout, GeneralLayout, NavigationLayout } from 'layouts';
+import { Routes } from 'constants/routes';
 
 const LoginPage = React.lazy(
   () => import('modules/pages/auth/pages/login/login.page')
@@ -14,6 +15,12 @@ const ClinicHistoryDashboardPage = React.lazy(
 const ClinicHistoryDetailsPage = React.lazy(
   () => import('modules/pages/clinic-history/pages/details/details.page')
 );
+const ScheduledAppointmentsPage = React.lazy(
+  () => import('modules/pages/appointments/pages/scheduled/scheduled.page')
+);
+const ScheduleAppointmentPage = React.lazy(
+  () => import('modules/pages/appointments/pages/schedule/schedule.page')
+);
 
 export const routes = createBrowserRouter([
   {
@@ -21,14 +28,44 @@ export const routes = createBrowserRouter([
     Component: GeneralLayout,
     children: [
       {
+        path: Routes.CLINIC_HISTORY,
         Component: ClinicHistoryLayout,
-        children: [{ index: true, Component: ClinicHistoryDashboardPage }],
+        children: [
+          { index: true, Component: ClinicHistoryDashboardPage },
+          {
+            Component: NavigationLayout,
+            children: [
+              { path: ':id/detalles', Component: ClinicHistoryDetailsPage },
+            ],
+          },
+        ],
       },
       {
-        Component: NavigationLayout,
+        path: `${Routes.APPOINTMENTS}`,
+        Component: AppointmentsLayout,
         children: [
-          { path: ':id/detalles', Component: ClinicHistoryDetailsPage },
+          {
+            path: Routes.SCHEDULED_APPOINTMENTS,
+            Component: ScheduledAppointmentsPage,
+          },
+          {
+            path: Routes.SCHEDULE_APPOINTMENT,
+            Component: ScheduleAppointmentPage,
+          },
+          {
+            index: true,
+            path: '',
+            Component: () => (
+              <Navigate
+                to={`/${Routes.APPOINTMENTS}/${Routes.SCHEDULED_APPOINTMENTS}`}
+              />
+            ),
+          },
         ],
+      },
+      {
+        path: '/',
+        Component: () => <Navigate to={`/${Routes.CLINIC_HISTORY}`} />,
       },
     ],
   },

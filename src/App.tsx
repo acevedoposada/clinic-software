@@ -3,12 +3,15 @@ import { Suspense } from 'react';
 
 import { RouterLoader } from 'components';
 import { routes } from 'routes';
+import ContextEnhancer from 'context';
 
 function App() {
   return (
-    <Suspense fallback={<RouterLoader />}>
-      <RouterProvider router={routes} />
-    </Suspense>
+    <ContextEnhancer>
+      <Suspense fallback={<RouterLoader />}>
+        <RouterProvider router={routes} />
+      </Suspense>
+    </ContextEnhancer>
   );
 }
 

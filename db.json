@@ -80,18 +80,6 @@
       "last-update": "2023-09-15 21:56:50"
     },
     {
-      "id": "84B84B67-363B-87A0-0698-98D7C17B645B",
-      "identificationType": "CC",
-      "identification": 1959517142,
-      "name": "Edward Rodriquez",
-      "address": "837-3481 Proin Av.",
-      "phone": "(494) 865-7112",
-      "email": "sagittis.semper@protonmail.couk",
-      "birthday": "2007-05-03 15:54:44",
-      "eps": "SURA",
-      "last-update": "2023-05-19 07:09:52"
-    },
-    {
       "id": "2AF24276-84D7-7357-38CC-E7C3A16D3694",
       "identificationType": "CC",
       "identification": 4660763822,
@@ -102,66 +90,6 @@
       "birthday": "2009-03-17 22:07:29",
       "eps": "SURA",
       "last-update": "2023-12-07 17:06:25"
-    },
-    {
-      "id": "269A9156-D741-4827-74CB-2F93B821D7F5",
-      "identificationType": "TI",
-      "identification": 4565355833,
-      "name": "Rooney Wallace",
-      "address": "Ap #950-4224 Vel, Rd.",
-      "phone": "(751) 883-1561",
-      "email": "egestas.hendrerit@yahoo.ca",
-      "birthday": "2010-03-05 12:03:57",
-      "eps": "SURA",
-      "last-update": "2024-10-20 03:00:04"
-    },
-    {
-      "id": "B1CCC304-766F-F3B5-8A5C-C61E0A6A397E",
-      "identificationType": "TI",
-      "identification": 8042115636,
-      "name": "Porter Keller",
-      "address": "Ap #755-8183 Ultrices Street",
-      "phone": "1-526-474-5373",
-      "email": "nunc@aol.com",
-      "birthday": "2008-11-26 11:24:48",
-      "eps": "SURA",
-      "last-update": "2023-11-11 18:51:16"
-    },
-    {
-      "id": "BA6D355C-83D2-1605-D35B-8C7675A4F291",
-      "identificationType": "PE",
-      "identification": 1627334900,
-      "name": "Donna Santana",
-      "address": "P.O. Box 480, 8536 Mauris Avenue",
-      "phone": "1-578-385-3918",
-      "email": "aliquet.molestie@yahoo.org",
-      "birthday": "2020-12-07 22:19:39",
-      "eps": "SURA",
-      "last-update": "2024-07-12 21:26:11"
-    },
-    {
-      "id": "0900CF18-BC54-8156-B5CC-CEB2EC28C445",
-      "identificationType": "PE",
-      "identification": 3912134417,
-      "name": "Ross Calderon",
-      "address": "Ap #147-4231 Nec St.",
-      "phone": "(607) 721-5117",
-      "email": "orci@hotmail.net",
-      "birthday": "1992-04-18 06:44:00",
-      "eps": "SURA",
-      "last-update": "2023-07-16 10:44:10"
-    },
-    {
-      "id": "4C58821C-0A94-AECC-30F7-AD19C7864096",
-      "identificationType": "CC",
-      "identification": 4858796433,
-      "name": "Daquan Brewer",
-      "address": "631-1251 Dui, Rd.",
-      "phone": "1-889-257-9825",
-      "email": "sit@google.ca",
-      "birthday": "1996-07-30 20:38:06",
-      "eps": "SURA",
-      "last-update": "2025-02-23 09:32:47"
     },
     {
       "id": "A3A3AB29-EDAA-1BC6-B46D-752E67A815A3",
@@ -185,19 +113,19 @@
     },
     {
       "id": "123723BB-7A09-E620-4F22-417121DF9C52",
-      "patient": "E83ED23B-6783-6C36-994E-8A1C3C8125D5",
+      "patient": "A3A3AB29-EDAA-1BC6-B46D-752E67A815A3",
       "date": "2024-10-04T15:00:00-05:00",
       "reason": "Cardiología"
     },
     {
       "id": "DA26A900-3574-36CE-78E0-A0C22E67E632",
-      "patient": "4DC08754-691A-DB9E-ED21-946312D465D2",
+      "patient": "2AF24276-84D7-7357-38CC-E7C3A16D3694",
       "date": "2024-10-04T15:00:00-05:00",
       "reason": "Cardiología"
     },
     {
       "id": "60888740-9A7B-5C2E-94BF-2CB5E2B88A3B",
-      "patient": "34D30E92-21BA-7402-E77F-41921E7ED443",
+      "patient": "3FBBB51D-679B-3599-3129-2B374D7ACBBA",
       "date": "2024-10-04T15:00:00-05:00",
       "reason": "Cardiología"
     }

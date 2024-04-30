@@ -10,7 +10,11 @@ import {
 } from '@fluentui/react-components';
 import { useDetailsPage } from '../../hooks/details.hook';
 import { useInView } from 'react-intersection-observer';
-import { DeleteRegular, FoodCakeRegular } from '@fluentui/react-icons';
+import {
+  ClipboardBulletListLtrRegular,
+  DeleteRegular,
+  FoodCakeRegular,
+} from '@fluentui/react-icons';
 import { motion } from 'framer-motion';
 import dayjs from 'dayjs';
 import _ from 'lodash';
@@ -19,6 +23,7 @@ import { userInfoVariants } from '../../constants/animations';
 import { DetailsAppointment, PastRegister, Vitals } from '../../components';
 
 import { useStyles } from './details.styles';
+import withTitle from 'helpers/withTitle';
 
 const DetailsPage = () => {
   const classes = useStyles();
@@ -89,6 +94,9 @@ const DetailsPage = () => {
               </div>
             </div>
           </Card>
+          <Button className='w-full !block !md:hidden' appearance='primary'>
+            Iniciar nueva consulta
+          </Button>
           <div className='sticky top-32'>
             <Card>
               <CardHeader
@@ -123,7 +131,7 @@ const DetailsPage = () => {
           </Card>
         </div>
         <div className='w-full xl:w-2/12 flex flex-col gap-8'>
-          <Button className='w-full' appearance='primary'>
+          <Button className='w-full !hidden !md:block' appearance='primary'>
             Iniciar nueva consulta
           </Button>
           <div>
@@ -147,4 +155,8 @@ const DetailsPage = () => {
   );
 };
 
-export default DetailsPage;
+export default withTitle(
+  DetailsPage,
+  'Historia Clínica',
+  ClipboardBulletListLtrRegular
+);
